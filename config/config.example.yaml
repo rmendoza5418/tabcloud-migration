@@ -1,0 +1,65 @@
+# tableau-cloud-migration configuration
+# Copy to config.yaml and fill in your values.
+# config.yaml is excluded from git — never commit credentials.
+
+source:
+  server_url: "https://tableau.company.com"
+  site_name: ""                        # empty string = Default site
+  token_name: "migration-script"
+  token_value: "YOUR_PAT_HERE"
+  api_version: "3.19"
+
+destination:
+  server_url: "https://prod-useast-a.online.tableau.com"
+  site_name: "mycompany"
+  token_name: "migration-script"
+  token_value: "YOUR_CLOUD_PAT_HERE"
+  api_version: "3.19"
+
+migration:
+  # Projects to migrate (leave empty to migrate all non-admin projects)
+  project_filter: []
+  # Example: ["Finance Dashboards", "Sales Analytics", "Risk Reports"]
+
+  # Map source project names to destination names (optional)
+  # If not listed, project names are preserved exactly.
+  project_mapping:
+    "Default": "Migrated Content"
+    "[Sandbox]": "Sandbox"
+
+  # Skip workbooks/datasources last accessed more than N days ago.
+  # Set to 0 to migrate all content regardless of age.
+  skip_stale_days: 0
+
+  # Maximum concurrent publish operations (1–8).
+  # Higher values are faster but increase API load.
+  concurrency: 3
+
+  # Re-schedule extract refreshes on the destination site.
+  migrate_schedules: true
+
+  # Attempt to re-apply permissions using group name matching.
+  # Requires identically named groups to exist on the destination site.
+  migrate_permissions: true
+
+thresholds:
+  # Workbooks larger than this (MB) are flagged as HIGH risk.
+  large_workbook_mb: 100
+
+  # Datasource extracts larger than this (rows) are flagged.
+  large_extract_rows: 5000000
+
+  # Workbooks with no views in this many days are flagged as stale.
+  stale_workbook_days: 180
+
+  # Connections to these hosts require Tableau Bridge on Cloud.
+  # Add your internal database hostnames here.
+  on_prem_hosts:
+    - "sqlserver.internal"
+    - "oracle.corp.com"
+    - "redshift.internal"
+
+reporting:
+  output_dir: "./output"
+  html_report: true
+  csv_export: true
