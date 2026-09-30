@@ -2,7 +2,7 @@
 
 Python toolkit for migrating content from **Tableau Server** to **Tableau Cloud** at scale. Built around the [Tableau Server Client (TSC)](https://tableau.github.io/server-client-python/) library and Tableau REST API.
 
-Used to migrate 7,100+ assets across 200+ projects for a financial services organization, achieving 94% automated migration with zero production incidents.
+Reference implementation built as a personal demo project. It contains no code, data, or configuration from any employer, and all figures below are sample output.
 
 ---
 
@@ -152,23 +152,23 @@ Source: https://tableau.company.com
 Site:   (Default)
 
 Building asset inventory…
-  847 published datasources found
-  6,253 workbooks found
+  42 published datasources found
+  158 workbooks found
 
 Running compatibility checks…
-  Assessment complete: 312 issues (47 blockers, 189 warnings, 76 info)
+  Assessment complete: 31 issues (6 blockers, 18 warnings, 7 info)
 
 Readiness Summary
-  Ready to migrate  : 6,841 / 7,100 (96.4%)
-  Blocked           : 259
-  Blockers          : 47
-  Warnings          : 189
+  Ready to migrate  : 188 / 200 (94.0%)
+  Blocked           : 12
+  Blockers          : 6
+  Warnings          : 18
 
 Generating reports…
   HTML report : ./output/assessment_20240315_093247.html
   CSV export  : ./output/assessment_issues_20240315_093247.csv
 
-⚠  47 blocker(s) must be resolved before migration.
+⚠  6 blocker(s) must be resolved before migration.
    See the HTML report for details and remediation guidance.
 ```
 
@@ -176,5 +176,5 @@ Generating reports…
 
 ## Related projects
 
-- [`tableau-asset-auditor`](../tableau-asset-auditor) — Governance audit tool for ongoing Server health (uses the same TSC client pattern)
-- [`bi-governance-framework`](../bi-governance-framework) — CoE naming conventions, certification standards, and project structure that informed the migration project mapping strategy
+- [`tableau-asset-auditor`](https://github.com/rmendoza5418/tableau-asset-auditor) — Governance audit tool for ongoing Server health (uses the same TSC client pattern)
+- [`bi-governance-framework`](https://github.com/rmendoza5418/bi-governance-framework) — CoE naming conventions, certification standards, and project structure that informed the migration project mapping strategy
