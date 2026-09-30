@@ -1,5 +1,7 @@
 # tableau-cloud-migration
 
+[![CI](https://github.com/rmendoza5418/tabcloud-migration/actions/workflows/ci.yml/badge.svg)](https://github.com/rmendoza5418/tabcloud-migration/actions/workflows/ci.yml)
+
 Python toolkit for migrating content from **Tableau Server** to **Tableau Cloud** at scale. Built around the [Tableau Server Client (TSC)](https://tableau.github.io/server-client-python/) library and Tableau REST API.
 
 Reference implementation built as a personal demo project. It contains no code, data, or configuration from any employer, and all figures below are sample output.
@@ -178,3 +180,12 @@ Generating reports…
 
 - [`tableau-asset-auditor`](https://github.com/rmendoza5418/tableau-asset-auditor) — Governance audit tool for ongoing Server health (uses the same TSC client pattern)
 - [`bi-governance-framework`](https://github.com/rmendoza5418/bi-governance-framework) — CoE naming conventions, certification standards, and project structure that informed the migration project mapping strategy
+
+## Tests
+
+```bash
+pip install -r requirements.txt pytest
+pytest
+```
+
+Tests run automatically on every push and pull request through GitHub Actions.
